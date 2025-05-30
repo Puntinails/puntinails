@@ -1,0 +1,2008 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punti Nails Spa | 米兰专业美甲沙龙</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --light-gold: #E6C567;
+            --pink: #F8D7DA;
+            --light-pink: #F9E9EC;
+            --dark: #333333;
+            --light: #F8F9FA;
+            --gray: #6C757D;
+            --marble: linear-gradient(to bottom right, #F8F9FA, #E9ECEF);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Language Selector */
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 2000;
+            display: flex;
+            gap: 10px;
+            background: white;
+            padding: 10px 15px;
+            border-radius: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .lang-btn {
+            background: none;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+        
+        .lang-btn.active {
+            background-color: var(--gold);
+            color: white;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 10px 0;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        /* Logo container styles */
+        .logo-img-container {
+            display: flex;
+            align-items: center;
+            height: 70px; /* Increased height for better visibility */
+        }
+        
+        .logo-img {
+            height: 100%;
+            width: auto;
+            max-height: 70px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo-img:hover {
+            transform: scale(1.05);
+        }
+        
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-text span {
+            color: var(--gold);
+            font-size: 1.4rem;
+            margin-top: -5px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 1.1rem;
+            position: relative;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--gold);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: var(--marble);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 90px; /* Adjusted for larger header */
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(212, 175, 55, 0.05)"/></svg>');
+            background-size: cover;
+            opacity: 0.7;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero h1 span {
+            color: var(--gold);
+            display: block;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--gray);
+        }
+        
+        .brands {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 25px 0;
+            flex-wrap: wrap;
+        }
+        
+        .brand-tag {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 15px;
+            background: rgba(255,255,255,0.8);
+            border-radius: 20px;
+            font-weight: 600;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .brand-tag i {
+            color: var(--gold);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--gold);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid var(--gold);
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--gold);
+            margin-left: 15px;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--gold);
+            color: white;
+        }
+        
+        .action-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: white;
+            color: var(--dark);
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            background: var(--gold);
+            color: white;
+        }
+        
+        .action-btn.call {
+            background: #25D366;
+            color: white;
+        }
+        
+        .action-btn.instagram {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+            color: white;
+        }
+        
+        .action-btn.tiktok {
+            background: #000;
+            color: white;
+        }
+        
+        /* Services Section */
+        .section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--gold);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .price-section {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+        
+        .price-section-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--light-pink);
+        }
+        
+        .price-section-title i {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-right: 15px;
+        }
+        
+        .price-section-title h3 {
+            font-size: 1.8rem;
+            color: var(--dark);
+        }
+        
+        .benefit-box {
+            background: var(--light-pink);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .benefit-box h4 {
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+        
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .price-item:last-child {
+            border-bottom: none;
+        }
+        
+        .service-name {
+            font-weight: 600;
+        }
+        
+        .service-price {
+            color: var(--gold);
+            font-weight: 700;
+        }
+        
+        .note {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-top: 10px;
+            font-style: italic;
+        }
+        
+        /* Brands Section */
+        .brands-section {
+            background: linear-gradient(135deg, #f9f9f9, #f0f0f0);
+            padding: 80px 0;
+        }
+        
+        .brands-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .brand-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .brand-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .brand-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+        
+        .brand-name {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .brand-desc {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        
+        /* About Section */
+        .about {
+            background-color: var(--light-pink);
+            position: relative;
+        }
+        
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 C50,100 50,0 100,100 L100,0 Z" fill="rgba(255,255,255,0.5)"/></svg>');
+            background-size: cover;
+            opacity: 0.3;
+        }
+        
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .about-img {
+            flex: 1;
+            height: 500px;
+            background-color: var(--light-gold);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: white;
+        }
+        
+        .about-content {
+            flex: 1;
+        }
+        
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+        }
+        
+        .about-content p {
+            margin-bottom: 20px;
+        }
+        
+        .certificates {
+            display: flex;
+            margin-top: 30px;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .certificate {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .certificate i {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-right: 10px;
+        }
+        
+        /* Gallery Section */
+        .gallery {
+            background-color: white;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .gallery-item {
+            height: 250px;
+            background-color: var(--light);
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .gallery-item:hover::before {
+            opacity: 1;
+        }
+        
+        .gallery-item i {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 2rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .gallery-item:hover i {
+            opacity: 1;
+        }
+        
+        .gallery-item:nth-child(1) { background-color: #FFD1DC; }
+        .gallery-item:nth-child(2) { background-color: #FFDFD3; }
+        .gallery-item:nth-child(3) { background-color: #FEC8D8; }
+        .gallery-item:nth-child(4) { background-color: #E0BBE4; }
+        .gallery-item:nth-child(5) { background-color: #FFC8DD; }
+        .gallery-item:nth-child(6) { background-color: #D8E2DC; }
+        .gallery-item:nth-child(7) { background-color: #FFE5D9; }
+        .gallery-item:nth-child(8) { background-color: #FAD2E1; }
+        
+        /* Booking Section */
+        .booking {
+            background: var(--marble);
+            text-align: center;
+        }
+        
+        .booking-steps {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .step {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            max-width: 300px;
+            transition: transform 0.3s;
+        }
+        
+        .step:hover {
+            transform: translateY(-10px);
+        }
+        
+        .step-icon {
+            width: 70px;
+            height: 70px;
+            background-color: var(--light-pink);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+            color: var(--gold);
+        }
+        
+        .booking-form {
+            background-color: white;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Lato', sans-serif;
+            font-size: 1rem;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .form-col {
+            flex: 1;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: var(--dark);
+            color: white;
+            padding: 80px 0;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: var(--gold);
+        }
+        
+        .contact-item {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .contact-item i {
+            font-size: 1.2rem;
+            color: var(--gold);
+            margin-right: 15px;
+            min-width: 25px;
+        }
+        
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-item a:hover {
+            color: var(--gold);
+        }
+        
+        .map {
+            height: 300px;
+            background-color: #555;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 1.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: #aaa;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: #333;
+            color: #aaa;
+            font-size: 1.3rem;
+            transition: all 0.3s;
+            border-radius: 50%;
+        }
+        
+        .social-links a:hover {
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        .social-links a.instagram:hover {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+        }
+        
+        .social-links a.tiktok:hover {
+            background: #000;
+        }
+        
+        .social-links a.whatsapp:hover {
+            background: #25D366;
+        }
+        
+        /* Logo showcase styles */
+        .logo-options {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .logo-option {
+            width: 200px;
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .logo-option img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-container {
+                flex-direction: column;
+            }
+            
+            .about-img, .about-content {
+                width: 100%;
+            }
+            
+            .booking-steps {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .brands-container {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+            
+            .logo-text {
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .language-selector {
+                top: 10px;
+                right: 10px;
+                padding: 8px 12px;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .brands {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .price-section {
+                padding: 25px;
+            }
+            
+            .logo-img-container {
+                height: 60px;
+            }
+            
+            .logo-text {
+                font-size: 1.3rem;
+            }
+            
+            .logo-text span {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                gap: 8px;
+            }
+            
+            .logo-text {
+                font-size: 1.1rem;
+            }
+            
+            .logo-text span {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <button class="lang-btn active" data-lang="it">IT</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="zh">中文</button>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-img-container">
+                    <!-- Logo image placeholder - replace with actual logo -->
+                    <img src="https://images.unsplash.com/photo-1633113215888-3c0d0e07f5c2?q=80&w=300" alt="Punti Nails Spa Logo" class="logo-img">
+                </div>
+                <div class="logo-text">Punti<span>Nails</span>Spa</div>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home" data-key="home">首页</a></li>
+                    <li><a href="#prices" data-key="prices">价格表</a></li>
+                    <li><a href="#brands" data-key="brands">品牌</a></li>
+                    <li><a href="#gallery" data-key="gallery">作品集</a></li>
+                    <li><a href="#booking" data-key="booking">预约</a></li>
+                    <li><a href="#contact" data-key="contact">联系我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 data-key="hero-title">米兰心脏地带<br><span>指尖的艺术殿堂</span></h1>
+                <p data-key="hero-desc">我们提供高端美甲服务，使用顶级品牌产品，结合日本JNEC护理标准与意大利美学设计，为您打造完美指尖艺术。</p>
+                
+                <div class="brands">
+                    <div class="brand-tag">
+                        <i class="fas fa-crown"></i>
+                        <span>CND Shellac</span>
+                    </div>
+                    <div class="brand-tag">
+                        <i class="fas fa-star"></i>
+                        <span>OPI</span>
+                    </div>
+                    <div class="brand-tag">
+                        <i class="fas fa-gem"></i>
+                        <span>Estrosa</span>
+                    </div>
+                </div>
+                
+                <a href="#booking" class="btn" data-key="book-btn">立即预约</a>
+                <a href="#prices" class="btn btn-outline" data-key="prices-btn">查看价格</a>
+                
+                <div class="action-buttons">
+                    <a href="tel:3802082770" class="action-btn call">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>3802082770</span>
+                    </a>
+                    <a href="https://www.instagram.com/puntinails_vulcano?igsh=bHp4Zm50dnBlbG4%3D&utm_source=qr" target="_blank" class="action-btn instagram">
+                        <i class="fab fa-instagram"></i>
+                        <span>@puntinails_vulcano</span>
+                    </a>
+                    <a href="https://www.tiktok.com/@puntinails_vulcano" target="_blank" class="action-btn tiktok">
+                        <i class="fab fa-tiktok"></i>
+                        <span>@puntinails_vulcano</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logo Showcase Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>店面Logo展示</h2>
+                <p>我们提供多种专业Logo设计选择</p>
+            </div>
+            
+            <div class="logo-options">
+                <div class="logo-option">
+                    <img src="https://images.unsplash.com/photo-1633113215888-3c0d0e07f5c2?q=80&w=200" alt="Logo Option 1">
+                    <p>优雅金色风格</p>
+                </div>
+                <div class="logo-option">
+                    <img src="https://images.unsplash.com/photo-1615051179134-62696ea77ef9?q=80&w=200" alt="Logo Option 2">
+                    <p>简约现代风格</p>
+                </div>
+                <div class="logo-option">
+                    <img src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?q=80&w=200" alt="Logo Option 3">
+                    <p>艺术设计风格</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prices Section -->
+    <section id="prices" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-key="prices-title">我们的价格表</h2>
+                <p data-key="prices-subtitle">使用顶级品牌的专业服务</p>
+            </div>
+            
+            <!-- Manicure Section -->
+            <div class="price-section">
+                <div class="price-section-title">
+                    <i class="fas fa-hand-sparkles"></i>
+                    <h3 data-key="manicure-title">Manicure</h3>
+                </div>
+                
+                <div class="benefit-box">
+                    <h4 data-key="manicure-benefit-title">Perché scegliere la nostra manicure?</h4>
+                    <p data-key="manicure-benefit-desc">La manicure non è solo bellezza, è cura. Le tue mani meritano attenzione speciale! Con la nostra manicure spa, le tue mani riceveranno un trattamento completo che le renderà lisce, morbide e impeccabili. Un momento di relax che ti regalerà un sorriso ogni volta che guarderai le tue mani perfette.</p>
+                </div>
+                
+                <div class="price-grid">
+                    <div class="price-item">
+                        <div class="service-name">Manicure spa senza smalto</div>
+                        <div class="service-price">€13,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Manicure spa con colore</div>
+                        <div class="service-price">€15,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Manicure spa french</div>
+                        <div class="service-price">€20,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Cambio smalto colore</div>
+                        <div class="service-price">€10,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Rimozione semipermanente</div>
+                        <div class="service-price">€8,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Rimozione semipermanente+smalto</div>
+                        <div class="service-price">€15,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Rimozione semipermanente+manicure spa</div>
+                        <div class="service-price">€20,00</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pedicure Section -->
+            <div class="price-section">
+                <div class="price-section-title">
+                    <i class="fas fa-paw"></i>
+                    <h3 data-key="pedicure-title">Pedicure</h3>
+                </div>
+                
+                <div class="benefit-box">
+                    <h4 data-key="pedicure-benefit-title">Il piacere di piedi perfetti!</h4>
+                    <p data-key="pedicure-benefit-desc">Dopo una lunga giornata, i tuoi piedi meritano di essere coccolati. Il nostro pedicure spa è un'esperienza di benessere che ti regalerà piedi morbidi, idratati e pronti per sfoggiare sandali estivi con sicurezza. Un trattamento che ti farà sentire più leggera e bellissima!</p>
+                </div>
+                
+                <div class="price-grid">
+                    <div class="price-item">
+                        <div class="service-name">Pedicure spa senza smalto</div>
+                        <div class="service-price">€23,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Pedicure spa con colore</div>
+                        <div class="service-price">€25,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Pedicure spa french</div>
+                        <div class="service-price">€30,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Cambio smalto colore</div>
+                        <div class="service-price">€10,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Rimozione semipermanente</div>
+                        <div class="service-price">€10,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Rimozione semipermanente+smalto</div>
+                        <div class="service-price">€18,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Rimozione semipermanente+pedicure spa</div>
+                        <div class="service-price">€33,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Pedicure curativo</div>
+                        <div class="service-price">+ €5,00</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Semipermanente Section -->
+            <div class="price-section">
+                <div class="price-section-title">
+                    <i class="fas fa-gem"></i>
+                    <h3 data-key="semipermanente-title">Semipermanente</h3>
+                </div>
+                
+                <div class="price-grid">
+                    <div class="price-item">
+                        <div class="service-name">Manicure semipermanente</div>
+                        <div class="service-price">€35,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Semipermanente senza manicure</div>
+                        <div class="service-price">€28,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Pedicure spa semipermanente</div>
+                        <div class="service-price">€45,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Pedicure semipermanente</div>
+                        <div class="service-price">€35,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Semipermanente french</div>
+                        <div class="service-price">+ €5,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Semipermanente shellac</div>
+                        <div class="service-price">+ €5,00</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ricostruzione gel Section -->
+            <div class="price-section">
+                <div class="price-section-title">
+                    <i class="fas fa-magic"></i>
+                    <h3 data-key="ricostruzione-title">Ricostruzione gel</h3>
+                </div>
+                
+                <div class="price-grid">
+                    <div class="price-item">
+                        <div class="service-name">Ricostruzione gel+colore semipermanente</div>
+                        <div class="service-price">€75,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Ricostruzione gel french</div>
+                        <div class="service-price">€80,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Copertura gel colore semipermanente</div>
+                        <div class="service-price">€64,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Copertura gel french</div>
+                        <div class="service-price">€69,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Rimozione gel+colore semipermanente</div>
+                        <div class="service-price">€25,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Ritocco gel</div>
+                        <div class="service-price">da €60,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Riparazione gel di un'unghia</div>
+                        <div class="service-price">€6,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Rimozione gel</div>
+                        <div class="service-price">€15,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Rimozione gel con manicure spa</div>
+                        <div class="service-price">€25,00</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pulizia e massaggi Section -->
+            <div class="price-section">
+                <div class="price-section-title">
+                    <i class="fas fa-spa"></i>
+                    <h3 data-key="massaggi-title">Pulizia e massaggi</h3>
+                </div>
+                
+                <div class="price-grid">
+                    <div class="price-item">
+                        <div class="service-name">Pulizia viso</div>
+                        <div class="service-price">€40 - €50</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Trattamento idratante</div>
+                        <div class="service-price">€60 - €70</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Pulizia viso con macchinario</div>
+                        <div class="service-price">€60 - €80,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Massaggio rassodante 20 min.</div>
+                        <div class="service-price">€20,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Massaggio corpo rilassante 30 min.</div>
+                        <div class="service-price">€30,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Massaggio piedi 30 min.</div>
+                        <div class="service-price">€25,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Massaggio rilassante totale 55 min.</div>
+                        <div class="service-price">€50,00</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Extension ciglia Section -->
+            <div class="price-section">
+                <div class="price-section-title">
+                    <i class="fas fa-eye"></i>
+                    <h3 data-key="ciglia-title">Extension ciglia</h3>
+                </div>
+                
+                <div class="price-grid">
+                    <div class="price-item">
+                        <div class="service-name">Extension ciglia</div>
+                        <div class="service-price">€80 - €100,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Rimozione ciglia</div>
+                        <div class="service-price">da €20,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Ritocco ciglia</div>
+                        <div class="service-price">€50,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Laminazione ciglia</div>
+                        <div class="service-price">€65,00</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Epilazione / ceretta Section -->
+            <div class="price-section">
+                <div class="price-section-title">
+                    <i class="fas fa-leaf"></i>
+                    <h3 data-key="ceretta-title">Epilazione / ceretta</h3>
+                </div>
+                
+                <div class="price-grid">
+                    <div class="price-item">
+                        <div class="service-name">Mezza gamba</div>
+                        <div class="service-price">€15,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Gamba intera</div>
+                        <div class="service-price">€28,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Braccia</div>
+                        <div class="service-price">€15,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Inguine brasiliana</div>
+                        <div class="service-price">€15,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Inguine totale</div>
+                        <div class="service-price">€20,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Glutei</div>
+                        <div class="service-price">€8,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Schiena</div>
+                        <div class="service-price">€20,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Ascelle</div>
+                        <div class="service-price">€8,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Baffetti</div>
+                        <div class="service-price">€5,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Sopracciglia</div>
+                        <div class="service-price">€5,00</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Epilazione uomo Section -->
+            <div class="price-section">
+                <div class="price-section-title">
+                    <i class="fas fa-user"></i>
+                    <h3 data-key="uomo-title">Epilazione uomo</h3>
+                </div>
+                
+                <div class="price-grid">
+                    <div class="price-item">
+                        <div class="service-name">Sopracciglia</div>
+                        <div class="service-price">€6,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Ascelle</div>
+                        <div class="service-price">€12,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Braccia</div>
+                        <div class="service-price">€17,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Petto</div>
+                        <div class="service-price">€20,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Gamba intera</div>
+                        <div class="service-price">€28,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Schiena</div>
+                        <div class="service-price">€20,00</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Combinazioni ceretta donna Section -->
+            <div class="price-section">
+                <div class="price-section-title">
+                    <i class="fas fa-star"></i>
+                    <h3 data-key="combo-title">Combinazioni ceretta donna</h3>
+                </div>
+                
+                <div class="price-grid">
+                    <div class="price-item">
+                        <div class="service-name">Gamba intera + inguine + ascelle + braccia + baffetti</div>
+                        <div class="service-price">€58,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Gamba intera + inguine + ascelle + braccia</div>
+                        <div class="service-price">€55,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Gamba intera + inguine + ascelle + baffetti</div>
+                        <div class="service-price">€45,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Gamba intera + inguine + braccia + baffetti</div>
+                        <div class="service-price">€42,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Gamba intera + inguine + braccia</div>
+                        <div class="service-price">€40,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Gamba intera + inguine + baffetti</div>
+                        <div class="service-price">€41,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Gamba intera + ascelle + braccia + baffetti</div>
+                        <div class="service-price">€48,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Gamba intera + ascelle + baffetti</div>
+                        <div class="service-price">€37,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Gamba intera + braccia + baffetti</div>
+                        <div class="service-price">€44,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Gamba intera + braccia</div>
+                        <div class="service-price">€41,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Mezza gamba + inguine + ascelle + braccia + baffetti</div>
+                        <div class="service-price">€47,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Mezza gamba + inguine + ascelle + braccia</div>
+                        <div class="service-price">€45,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Mezza gamba + inguine + ascelle + baffetti</div>
+                        <div class="service-price">€34,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Mezza gamba + inguine + braccia + baffetti</div>
+                        <div class="service-price">€34,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Mezza gamba + inguine + braccia</div>
+                        <div class="service-price">€31,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Mezza gamba + inguine + baffetti</div>
+                        <div class="service-price">€30,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Mezza gamba + inguine</div>
+                        <div class="service-price">€28,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Mezza gamba + ascelle</div>
+                        <div class="service-price">€28,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Mezza gamba + braccia</div>
+                        <div class="service-price">€24,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Ascelle + braccia + baffetti</div>
+                        <div class="service-price">€24,00</div>
+                    </div>
+                    <div class="price-item">
+                        <div class="service-name">Ascelle + braccia</div>
+                        <div class="service-price">€21,00</div>
+                    </div>
+                </div>
+                
+                <div class="note" data-key="combo-note">*inguine totale – + €5,00 | *sopracciglia – + €3,00 | *glutei – + €5,00</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Section -->
+    <section id="brands" class="brands-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-key="brands-title">我们使用的品牌</h2>
+                <p data-key="brands-subtitle">只使用最高品质的专业美甲产品</p>
+            </div>
+            <div class="brands-container">
+                <div class="brand-card">
+                    <div class="brand-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3 class="brand-name">CND Shellac</h3>
+                    <p class="brand-desc" data-key="cnd-desc">全球领先的凝胶美甲品牌，提供持久亮丽的色彩和卓越的指甲保护</p>
+                </div>
+                
+                <div class="brand-card">
+                    <div class="brand-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="brand-name">OPI</h3>
+                    <p class="brand-desc" data-key="opi-desc">专业美甲行业标杆，以丰富的色彩选择和创新的配方闻名全球</p>
+                </div>
+                
+                <div class="brand-card">
+                    <div class="brand-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3 class="brand-name">Estrosa</h3>
+                    <p class="brand-desc" data-key="estrosa-desc">高端美甲艺术品牌，提供独特的装饰材料和创意设计解决方案</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-key="gallery-title">作品展示</h2>
+                <p data-key="gallery-subtitle">使用CND Shellac、OPI和Estrosa产品创作</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+                <div class="gallery-item">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+                <div class="gallery-item">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+                <div class="gallery-item">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+                <div class="gallery-item">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+                <div class="gallery-item">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+                <div class="gallery-item">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+                <div class="gallery-item">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="section booking">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-key="booking-title">预约服务</h2>
+            </div>
+            
+            <div class="booking-steps">
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="far fa-calendar-alt"></i>
+                    </div>
+                    <h3 data-key="step1-title">选择时间</h3>
+                    <p data-key="step1-desc">选择您方便的日期和时间</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3 data-key="step2-title">选择服务</h3>
+                    <p data-key="step2-desc">从我们的服务菜单中选择</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="far fa-check-circle"></i>
+                    </div>
+                    <h3 data-key="step3-title">确认预约</h3>
+                    <p data-key="step3-desc">收到确认信息完成预约</p>
+                </div>
+            </div>
+            
+            <div class="booking-form">
+                <form id="appointment-form">
+                    <div class="form-row">
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="name" data-key="form-name">姓名</label>
+                                <input type="text" id="name" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="email" data-key="form-email">电子邮箱</label>
+                                <input type="email" id="email" class="form-control" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="phone" data-key="form-phone">电话</label>
+                                <input type="tel" id="phone" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="date" data-key="form-date">预约日期</label>
+                                <input type="date" id="date" class="form-control" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service" data-key="form-service">选择服务</label>
+                        <select id="service" class="form-control" required>
+                            <option value="" disabled selected data-key="form-service-select">请选择服务</option>
+                            <option value="manicure" data-key="service-manicure">Manicure</option>
+                            <option value="pedicure" data-key="service-pedicure">Pedicure</option>
+                            <option value="semipermanente" data-key="service-semipermanente">Semipermanente</option>
+                            <option value="ricostruzione" data-key="service-ricostruzione">Ricostruzione gel</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="brand" data-key="form-brand">偏好品牌</label>
+                        <select id="brand" class="form-control">
+                            <option value="" data-key="brand-select">无偏好</option>
+                            <option value="cnd" data-key="cnd-brand">CND Shellac</option>
+                            <option value="opi" data-key="opi-brand">OPI</option>
+                            <option value="estrosa" data-key="estrosa-brand">Estrosa</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message" data-key="form-message">特殊要求</label>
+                        <textarea id="message" class="form-control" rows="4"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn" style="width: 100%;" data-key="form-submit">提交预约</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3 data-key="contact-title">联系我们</h3>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4 data-key="contact-address">地址</h4>
+                            <p>Centro commerciale Vulcano<br>Via ITALIA 555<br>SESTO SAN GIOVANNI<br>MILANO 20099</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h4 data-key="contact-phone">电话</h4>
+                            <p><a href="tel:3802082770">3802082770</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fab fa-instagram"></i>
+                        <div>
+                            <h4 data-key="contact-instagram">Instagram</h4>
+                            <p><a href="https://www.instagram.com/puntinails_vulcano?igsh=bHp4Zm50dnBlbG4%3D&utm_source=qr" target="_blank">@puntinails_vulcano</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fab fa-tiktok"></i>
+                        <div>
+                            <h4 data-key="contact-tiktok">TikTok</h4>
+                            <p><a href="https://www.tiktok.com/@puntinails_vulcano" target="_blank">@puntinails_vulcano</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="far fa-clock"></i>
+                        <div>
+                            <h4 data-key="contact-hours">营业时间</h4>
+                            <p data-key="hours-weekdays">周一至周五: 10:00 - 20:00</p>
+                            <p data-key="hours-weekend">周六至周日: 09:00 - 22:00</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="map">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <span data-key="map-text"> 米兰地图位置</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.instagram.com/puntinails_vulcano?igsh=bHp4Zm50dnBlbG4%3D&utm_source=qr" target="_blank" class="instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.tiktok.com/@puntinails_vulcano" target="_blank" class="tiktok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="tel:3802082770" class="whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+            <p data-key="copyright">&copy; 2023 Punti Nails Spa. 保留所有权利。</p>
+            <p class="brands-footer" data-key="brands-footer">使用品牌：CND Shellac | OPI | Estrosa</p>
+        </div>
+    </footer>
+
+    <script>
+        // 多语言支持
+        const translations = {
+            it: {
+                // 导航
+                "home": "Home",
+                "prices": "Prezzi",
+                "brands": "Brand",
+                "gallery": "Galleria",
+                "booking": "Prenotazione",
+                "contact": "Contatti",
+                
+                // 首页
+                "hero-title": "Nel cuore di Milano<br><span>Il tempio dell'arte delle unghie</span>",
+                "hero-desc": "Offriamo servizi di nail art di alta qualità con prodotti di marca premium, combinando gli standard di cura giapponesi JNEC con il design estetico italiano per creare la perfetta arte delle unghie.",
+                "book-btn": "Prenota Ora",
+                "prices-btn": "Vedi Prezzi",
+                
+                // 价格表
+                "prices-title": "Il Nostro Listino Prezzi",
+                "prices-subtitle": "Servizi professionali con prodotti di alta qualità",
+                
+                // Manicure
+                "manicure-title": "Manicure",
+                "manicure-benefit-title": "Perché scegliere la nostra manicure?",
+                "manicure-benefit-desc": "La manicure non è solo bellezza, è cura. Le tue mani meritano attenzione speciale! Con la nostra manicure spa, le tue mani riceveranno un trattamento completo che le renderà lisce, morbide e impeccabili. Un momento di relax che ti regalerà un sorriso ogni volta che guarderai le tue mani perfette.",
+                
+                // Pedicure
+                "pedicure-title": "Pedicure",
+                "pedicure-benefit-title": "Il piacere di piedi perfetti!",
+                "pedicure-benefit-desc": "Dopo una lunga giornata, i tuoi piedi meritano di essere coccolati. Il nostro pedicure spa è un'esperienza di benessere che ti regalerà piedi morbidi, idratati e pronti per sfoggiare sandali estivi con sicurezza. Un trattamento che ti farà sentire più leggera e bellissima!",
+                
+                // 其他类别
+                "semipermanente-title": "Semipermanente",
+                "ricostruzione-title": "Ricostruzione gel",
+                "massaggi-title": "Pulizia e massaggi",
+                "ciglia-title": "Extension ciglia",
+                "ceretta-title": "Epilazione / ceretta",
+                "uomo-title": "Epilazione uomo",
+                "combo-title": "Combinazioni ceretta donna",
+                "combo-note": "*inguine totale – + €5,00 | *sopracciglia – + €3,00 | *glutei – + €5,00",
+                
+                // 品牌
+                "brands-title": "I Nostri Brand",
+                "brands-subtitle": "Utilizziamo solo prodotti professionali di alta qualità",
+                "cnd-desc": "Leader mondiale in gel per unghie, offre colori duraturi e brillanti e una protezione eccezionale per le unghie",
+                "opi-desc": "Punto di riferimento nel settore delle unghie professionale, famoso per la vasta gamma di colori e formule innovative",
+                "estrosa-desc": "Marca di nail art premium che offre materiali decorativi unici e soluzioni creative per il design",
+                
+                // 作品集
+                "gallery-title": "Le Nostre Creazioni",
+                "gallery-subtitle": "Realizzato con prodotti CND Shellac, OPI e Estrosa",
+                
+                // 预约
+                "booking-title": "Prenota il Tuo Appuntamento",
+                "step1-title": "Scegli la Data",
+                "step1-desc": "Seleziona la data e l'ora che preferisci",
+                "step2-title": "Scegli il Servizio",
+                "step2-desc": "Scegli dal nostro menu di servizi",
+                "step3-title": "Conferma Prenotazione",
+                "step3-desc": "Ricevi la conferma per completare la prenotazione",
+                
+                // 表单
+                "form-name": "Nome",
+                "form-email": "Email",
+                "form-phone": "Telefono",
+                "form-date": "Data Prenotazione",
+                "form-service": "Seleziona Servizio",
+                "form-service-select": "Seleziona un servizio",
+                "service-manicure": "Manicure",
+                "service-pedicure": "Pedicure",
+                "service-semipermanente": "Semipermanente",
+                "service-ricostruzione": "Ricostruzione gel",
+                "form-brand": "Preferenza Marca",
+                "brand-select": "Nessuna preferenza",
+                "cnd-brand": "CND Shellac",
+                "opi-brand": "OPI",
+                "estrosa-brand": "Estrosa",
+                "form-message": "Richieste Speciali",
+                "form-submit": "Invia Prenotazione",
+                
+                // 联系我们
+                "contact-title": "Contattaci",
+                "contact-address": "Indirizzo",
+                "contact-phone": "Telefono",
+                "contact-instagram": "Instagram",
+                "contact-tiktok": "TikTok",
+                "contact-hours": "Orari di Apertura",
+                "hours-weekdays": "Lun-Ven: 10:00 - 20:00",
+                "hours-weekend": "Sab-Dom: 09:00 - 22:00",
+                "map-text": "Posizione su Mappa",
+                
+                // 页脚
+                "copyright": "© 2023 Punti Nails Spa. Tutti i diritti riservati.",
+                "brands-footer": "Brand utilizzati: CND Shellac | OPI | Estrosa"
+            },
+            en: {
+                "home": "Home",
+                "prices": "Prices",
+                "brands": "Brands",
+                "gallery": "Gallery",
+                "booking": "Booking",
+                "contact": "Contact",
+                
+                "hero-title": "In the Heart of Milan<br><span>A Temple of Nail Art</span>",
+                "hero-desc": "We offer high-end nail services with premium brand products, combining Japanese JNEC care standards with Italian aesthetic design to create perfect nail art.",
+                "book-btn": "Book Now",
+                "prices-btn": "View Prices",
+                
+                "prices-title": "Our Price List",
+                "prices-subtitle": "Professional services with high-quality products",
+                
+                "manicure-title": "Manicure",
+                "manicure-benefit-title": "Why choose our manicure?",
+                "manicure-benefit-desc": "Manicure is not just beauty, it's care. Your hands deserve special attention! With our spa manicure, your hands will receive a complete treatment that will make them smooth, soft and impeccable. A moment of relaxation that will give you a smile every time you look at your perfect hands.",
+                
+                "pedicure-title": "Pedicure",
+                "pedicure-benefit-title": "The pleasure of perfect feet!",
+                "pedicure-benefit-desc": "After a long day, your feet deserve to be pampered. Our spa pedicure is a wellness experience that will give you soft, hydrated feet ready to show off summer sandals with confidence. A treatment that will make you feel lighter and more beautiful!",
+                
+                "semipermanente-title": "Semi-permanent",
+                "ricostruzione-title": "Gel Reconstruction",
+                "massaggi-title": "Cleaning and Massages",
+                "ciglia-title": "Eyelash Extensions",
+                "ceretta-title": "Waxing",
+                "uomo-title": "Men's Waxing",
+                "combo-title": "Women's Waxing Combinations",
+                "combo-note": "*total bikini – + €5.00 | *eyebrows – + €3.00 | *buttocks – + €5.00",
+                
+                "brands-title": "Our Brands",
+                "brands-subtitle": "Using only high-quality professional products",
+                "cnd-desc": "Global leader in gel nails, offering long-lasting, vibrant colors and exceptional nail protection",
+                "opi-desc": "Benchmark in the professional nail industry, famous for its wide color range and innovative formulas",
+                "estrosa-desc": "Premium nail art brand offering unique decorative materials and creative design solutions",
+                
+                "gallery-title": "Our Portfolio",
+                "gallery-subtitle": "Created with CND Shellac, OPI and Estrosa products",
+                
+                "booking-title": "Book Your Appointment",
+                "step1-title": "Choose Time",
+                "step1-desc": "Select your preferred date and time",
+                "step2-title": "Choose Service",
+                "step2-desc": "Select from our service menu",
+                "step3-title": "Confirm Booking",
+                "step3-desc": "Receive confirmation to complete booking",
+                
+                "form-name": "Name",
+                "form-email": "Email",
+                "form-phone": "Phone",
+                "form-date": "Appointment Date",
+                "form-service": "Select Service",
+                "form-service-select": "Select a service",
+                "service-manicure": "Manicure",
+                "service-pedicure": "Pedicure",
+                "service-semipermanente": "Semi-permanent",
+                "service-ricostruzione": "Gel Reconstruction",
+                "form-brand": "Brand Preference",
+                "brand-select": "No preference",
+                "cnd-brand": "CND Shellac",
+                "opi-brand": "OPI",
+                "estrosa-brand": "Estrosa",
+                "form-message": "Special Requests",
+                "form-submit": "Submit Booking",
+                
+                "contact-title": "Contact Us",
+                "contact-address": "Address",
+                "contact-phone": "Phone",
+                "contact-instagram": "Instagram",
+                "contact-tiktok": "TikTok",
+                "contact-hours": "Opening Hours",
+                "hours-weekdays": "Mon-Fri: 10:00 - 20:00",
+                "hours-weekend": "Sat-Sun: 09:00 - 22:00",
+                "map-text": "Milan Location Map",
+                
+                "copyright": "© 2023 Punti Nails Spa. All rights reserved.",
+                "brands-footer": "Brands used: CND Shellac | OPI | Estrosa"
+            },
+            zh: {
+                "home": "首页",
+                "prices": "价格表",
+                "brands": "品牌",
+                "gallery": "作品集",
+                "booking": "预约",
+                "contact": "联系我们",
+                
+                "hero-title": "米兰心脏地带<br><span>指尖的艺术殿堂</span>",
+                "hero-desc": "我们提供高端美甲服务，使用顶级品牌产品，结合日本JNEC护理标准与意大利美学设计，为您打造完美指尖艺术。",
+                "book-btn": "立即预约",
+                "prices-btn": "查看价格",
+                
+                "prices-title": "我们的价格表",
+                "prices-subtitle": "使用顶级品牌的专业服务",
+                
+                "manicure-title": "手部护理",
+                "manicure-benefit-title": "为什么选择我们的手部护理？",
+                "manicure-benefit-desc": "手部护理不仅是美容，更是呵护。您的双手值得特别关注！通过我们的水疗手部护理，您的双手将获得全面呵护，变得光滑柔软、完美无瑕。每次看到您完美的双手，都会让您会心一笑。",
+                
+                "pedicure-title": "足部护理",
+                "pedicure-benefit-title": "完美足部的愉悦体验！",
+                "pedicure-benefit-desc": "漫长的一天结束后，您的双脚值得被呵护。我们的水疗足部护理是一种健康体验，让您的双脚柔软水润，自信展示夏日凉鞋。让您感觉更轻盈、更美丽的护理体验！",
+                
+                "semipermanente-title": "半永久美甲",
+                "ricostruzione-title": "凝胶重建",
+                "massaggi-title": "清洁与按摩",
+                "ciglia-title": "睫毛延长",
+                "ceretta-title": "脱毛/蜜蜡脱毛",
+                "uomo-title": "男士脱毛",
+                "combo-title": "女士脱毛组合",
+                "combo-note": "*全比基尼 – + €5,00 | *眉毛 – + €3,00 | *臀部 – + €5,00",
+                
+                "brands-title": "我们使用的品牌",
+                "brands-subtitle": "只使用最高品质的专业产品",
+                "cnd-desc": "全球领先的凝胶美甲品牌，提供持久亮丽的色彩和卓越的指甲保护",
+                "opi-desc": "专业美甲行业标杆，以丰富的色彩选择和创新的配方闻名全球",
+                "estrosa-desc": "高端美甲艺术品牌，提供独特的装饰材料和创意设计解决方案",
+                
+                "gallery-title": "作品展示",
+                "gallery-subtitle": "使用CND Shellac、OPI和Estrosa产品创作",
+                
+                "booking-title": "预约服务",
+                "step1-title": "选择时间",
+                "step1-desc": "选择您方便的日期和时间",
+                "step2-title": "选择服务",
+                "step2-desc": "从我们的服务菜单中选择",
+                "step3-title": "确认预约",
+                "step3-desc": "收到确认信息完成预约",
+                
+                "form-name": "姓名",
+                "form-email": "电子邮箱",
+                "form-phone": "电话",
+                "form-date": "预约日期",
+                "form-service": "选择服务",
+                "form-service-select": "请选择服务",
+                "service-manicure": "手部护理",
+                "service-pedicure": "足部护理",
+                "service-semipermanente": "半永久美甲",
+                "service-ricostruzione": "凝胶重建",
+                "form-brand": "偏好品牌",
+                "brand-select": "无偏好",
+                "cnd-brand": "CND Shellac",
+                "opi-brand": "OPI",
+                "estrosa-brand": "Estrosa",
+                "form-message": "特殊要求",
+                "form-submit": "提交预约",
+                
+                "contact-title": "联系我们",
+                "contact-address": "地址",
+                "contact-phone": "电话",
+                "contact-instagram": "Instagram",
+                "contact-tiktok": "TikTok",
+                "contact-hours": "营业时间",
+                "hours-weekdays": "周一至周五: 10:00 - 20:00",
+                "hours-weekend": "周六至周日: 09:00 - 22:00",
+                "map-text": "米兰地图位置",
+                
+                "copyright": "© 2023 Punti Nails Spa. 保留所有权利。",
+                "brands-footer": "使用品牌：CND Shellac | OPI | Estrosa"
+            }
+        };
+
+        // 当前语言
+        let currentLang = 'it';
+        
+        // 切换语言函数
+        function changeLanguage(lang) {
+            currentLang = lang;
+            
+            // 更新语言按钮状态
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+            
+            // 更新所有带data-key属性的元素
+            document.querySelectorAll('[data-key]').forEach(element => {
+                const key = element.dataset.key;
+                if (translations[lang][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[lang][key];
+                    } else if (element.tagName === 'OPTION') {
+                        element.textContent = translations[lang][key];
+                    } else {
+                        element.innerHTML = translations[lang][key];
+                    }
+                }
+            });
+        }
+        
+        // 初始化语言切换
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                changeLanguage(btn.dataset.lang);
+            });
+        });
+        
+        // 初始化页面为意大利语
+        changeLanguage('it');
+        
+        // 移动端菜单切换
+        document.querySelector('.mobile-menu-btn').addEventListener('click', () => {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // 关闭移动菜单
+                document.querySelector('nav ul').classList.remove('show');
+            });
+        });
+        
+        // 表单提交
+        document.getElementById('appointment-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 在实际应用中，这里会有表单验证和提交逻辑
+            alert(currentLang === 'it' ? 'Prenotazione inviata con successo!' : 
+                  currentLang === 'en' ? 'Booking submitted successfully!' : 
+                  '预约提交成功！');
+            
+            this.reset();
+        });
+    </script>
+</body>
+</html>
